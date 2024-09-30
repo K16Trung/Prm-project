@@ -148,44 +148,7 @@ public class MainActivity extends AppCompatActivity {
         return animator;
     }
 
-    private void checkWinner(SeekBar winningHorse) {
-        if (!isRacing) {
-            return;
-        }
 
-        isRacing = false;
-        startButton.setEnabled(true);
-        horse1.setEnabled(false);
-        horse2.setEnabled(false);
-        horse3.setEnabled(false);
-        if (winningHorse != horse1) animator1.pause();
-        if (winningHorse != horse2) animator2.pause();
-        if (winningHorse != horse3) animator3.pause();
-
-        double gain;
-        double finalMoney;
-        String winner;
-        if (winningHorse == horse1) {
-            gain = cash1 * Double.parseDouble(rate1.getText().toString()) + cash1;
-            finalMoney = getMoney() + gain;
-            winner = "Horse 1";
-        } else if (winningHorse == horse2) {
-            gain = cash2 * Double.parseDouble(rate2.getText().toString()) + cash2;
-            finalMoney = getMoney() + gain;
-            winner = "Horse 2";
-        } else {
-            gain = cash3 * Double.parseDouble(rate3.getText().toString()) + cash3;
-            finalMoney = getMoney() + gain;
-            winner = "Horse 3";
-        }
-        randomizeRates(1, 2);
-        money.setText(String.valueOf(finalMoney));
-        winnerText.setText(winner + " wins!");
-        winnerText.setVisibility(View.VISIBLE);
-
-        double netGain = gain - (cash1 + cash2 + cash3);
-        showRoundResult(netGain, winner);
-    }
 
     private double getMoney() {
         return Double.parseDouble(money.getText().toString());
