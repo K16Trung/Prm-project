@@ -168,15 +168,15 @@ public class MainActivity extends AppCompatActivity {
         if (winningHorse == horse1) {
             gain = cash1 * Double.parseDouble(rate1.getText().toString()) + cash1;
             finalMoney = getMoney() + gain;
-            winner = "Nài 1";
+            winner = "Horse 1";
         } else if (winningHorse == horse2) {
             gain = cash2 * Double.parseDouble(rate2.getText().toString()) + cash2;
             finalMoney = getMoney() + gain;
-            winner = "Nài 2";
+            winner = "Horse 2";
         } else {
             gain = cash3 * Double.parseDouble(rate3.getText().toString()) + cash3;
             finalMoney = getMoney() + gain;
-            winner = "Nài 3";
+            winner = "Horse 3";
         }
         randomizeRates(1, 2);
         money.setText(String.valueOf(finalMoney));
